@@ -7,7 +7,7 @@ import { URL } from "url";
 import { Socket as DgramSocket } from "dgram";
 import * as WebSocket from "ws";
 
-declare function apoloJS(token: string, options?: apoloJS.ClientOptions): apoloJS.Client;
+declare function apoloJS(token: string | undefined, options?: apoloJS.ClientOptions): apoloJS.Client;
 
 declare namespace apoloJS {
   export const Constants: Constants;
