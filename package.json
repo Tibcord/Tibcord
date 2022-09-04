@@ -1,5 +1,5 @@
 {
-  "name": "apoloJS",
+  "name": "apolojs",
   "version": "0.0.1",
   "description": "An optimized NodeJS Discord library.",
   "main": "./index.js",
