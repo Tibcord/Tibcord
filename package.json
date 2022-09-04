@@ -1,5 +1,5 @@
 {
-  "name": "arijs",
+  "name": "apoloJS",
   "version": "0.0.1",
   "description": "An optimized NodeJS Discord library.",
   "main": "./index.js",
@@ -32,15 +32,15 @@
     "api",
     "discord",
     "library",
-    "arijs",
+    "apoloJS",
     "wrapper"
   ],
   "author": "dirquel",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AriJS-lib/AriJS/issues"
+    "url": "https://github.com/apoloJS-lib/apoloJS/issues"
   },
-  "homepage": "https://gitub.com/AriJS-lib/AriJS/#readme/",
+  "homepage": "https://gitub.com/apoloJS-lib/apoloJS/#readme/",
   "dependencies": {
     "ws": "^8.2.3"
   },

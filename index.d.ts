@@ -7,9 +7,9 @@ import { URL } from "url";
 import { Socket as DgramSocket } from "dgram";
 import * as WebSocket from "ws";
 
-declare function AriJS(token: string, options?: AriJS.ClientOptions): AriJS.Client;
+declare function apoloJS(token: string, options?: apoloJS.ClientOptions): apoloJS.Client;
 
-declare namespace AriJS {
+declare namespace apoloJS {
   export const Constants: Constants;
   export const VERSION: string;
 
@@ -3952,4 +3952,4 @@ declare namespace AriJS {
   }
 }
 
-export = AriJS;
+export = apoloJS;
