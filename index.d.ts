@@ -165,9 +165,9 @@ declare namespace apoloJS {
 
   // Presence/Relationship
   type ActivityFlags = Constants["ActivityFlags"][keyof Constants["ActivityFlags"]];
-  type ActivityType = BotActivityType | Constants["ActivityTypes"]["CUSTOM"];
-  // type BotActivityType = Constants["ActivityTypes"][Exclude<keyof Constants["ActivityTypes"], "Custom">];
-  type BotActivityType = Exclude<keyof Constants["ActivityTypes"], "Custom">;
+  type ActivityType = BotActivityType | Constants["ActivityTypes"]["Custom"];
+  type BotActivityType = Constants["ActivityTypes"][keyof Constants["ActivityTypes"]];
+  type BotStringActivityType = Exclude<keyof Constants["ActivityTypes"], "Custom">;
   type FriendSuggestionReasons = { name: string; platform_type: string; type: number }[];
   type Status = "online" | "idle" | "dnd";
   type SelfStatus = Status | "invisible";
@@ -1458,7 +1458,7 @@ declare namespace apoloJS {
   }
 
   // Presence
-  interface Activity<T extends ActivityType = ActivityType> extends ActivityPartial<T> {
+  interface Activity<T extends ActivityType> extends ActivityPartial<T> {
     application_id?: string;
     assets?: {
       large_image?: string;
@@ -1485,14 +1485,14 @@ declare namespace apoloJS {
     label: string;
     url: string;
   }
-  interface ActivityPartial<T extends BotActivityType> {
+  interface ActivityPartial<T extends BotStringActivityType> {
     name: string;
     type?: T;
     url?: string;
     shard?: number | string;
   }
   interface ClientPresence {
-    activities: Activity[] | null;
+    activities: Activity<ActivityType>[] | null;
     afk: boolean;
     since: number | null;
     status: SelfStatus;
@@ -1503,7 +1503,7 @@ declare namespace apoloJS {
     web: UserStatus;
   }
   interface Presence {
-    activities?: Activity[];
+    activities?: Activity<ActivityType>[];
     clientStatus?: ClientStatus;
     status?: UserStatus;
   }
@@ -2612,8 +2612,8 @@ declare namespace apoloJS {
     editRolePosition(guildID: string, roleID: string, position: number): Promise<void>;
     editSelf(options: { avatar?: string; username?: string }): Promise<ExtendedUser>;
     editStageInstance(channelID: string, options: StageInstanceOptions): Promise<StageInstance>;
-    editStatus(status: SelfStatus, activities?: ActivityPartial<BotActivityType>[] | ActivityPartial<BotActivityType>): void;
-    editStatus(activities?: ActivityPartial<BotActivityType>[] | ActivityPartial<BotActivityType>): void;
+    editStatus(status: SelfStatus, activities?: ActivityPartial<BotStringActivityType>[] | ActivityPartial<BotStringActivityType>): void;
+    editStatus(activities?: ActivityPartial<BotStringActivityType>[] | ActivityPartial<BotStringActivityType>): void;
     editWebhook(
       webhookID: string,
       options: WebhookOptions,
@@ -3319,7 +3319,7 @@ declare namespace apoloJS {
 
   export class Member extends Base implements Presence {
     accentColor?: number | null;
-    activities?: Activity[];
+    activities?: Activity<ActivityType>[];
     avatar: string | null;
     avatarURL: string;
     banner?: string | null;
@@ -3331,7 +3331,7 @@ declare namespace apoloJS {
     defaultAvatar: string;
     defaultAvatarURL: string;
     discriminator: string;
-    game: Activity | null;
+    game: Activity<ActivityType> | null;
     guild: Guild;
     id: string;
     joinedAt: number | null;
@@ -3589,8 +3589,8 @@ declare namespace apoloJS {
     createGuild(_guild: Guild): Guild;
     disconnect(options?: { reconnect?: boolean | "auto" }, error?: Error): void;
     editAFK(afk: boolean): void;
-    editStatus(status: SelfStatus, activities?: ActivityPartial<BotActivityType>[] | ActivityPartial<BotActivityType>): void;
-    editStatus(activities?: ActivityPartial<BotActivityType>[] | ActivityPartial<BotActivityType>): void;
+    editStatus(status: SelfStatus, activities?: ActivityPartial<BotStringActivityType>[] | ActivityPartial<BotStringActivityType>): void;
+    editStatus(activities?: ActivityPartial<BotStringActivityType>[] | ActivityPartial<BotStringActivityType>): void;
     // @ts-ignore: Method override
     emit(event: string, ...args: any[]): void;
     emit<K extends keyof ShardEvents>(event: K, ...args: ShardEvents[K]): boolean;
