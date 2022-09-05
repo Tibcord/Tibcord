@@ -38,9 +38,9 @@
   "author": "dirquel",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/apoloJS-lib/apoloJS/issues"
+    "url": "https://github.com/ApoloJS/apoloJS/issues"
   },
-  "homepage": "https://gitub.com/apoloJS-lib/apoloJS/#readme/",
+  "homepage": "https://gitub.com/ApoloJS/apoloJS/#readme/",
   "dependencies": {
     "ws": "^8.2.3"
   },
