@@ -166,7 +166,8 @@ declare namespace apoloJS {
   // Presence/Relationship
   type ActivityFlags = Constants["ActivityFlags"][keyof Constants["ActivityFlags"]];
   type ActivityType = BotActivityType | Constants["ActivityTypes"]["CUSTOM"];
-  type BotActivityType = Constants["ActivityTypes"][Exclude<keyof Constants["ActivityTypes"], "CUSTOM">];
+  type BotActivityType = Constants["ActivityTypes"][keyof Constants["ActivityTypes"]];
+  type BotStringActivityType = "Playing" | "Streaming" | "Listening" | "Watching" | "Custom" | "Competing";
   type FriendSuggestionReasons = { name: string; platform_type: string; type: number }[];
   type Status = "online" | "idle" | "dnd";
   type SelfStatus = Status | "invisible";
@@ -1484,7 +1485,7 @@ declare namespace apoloJS {
     label: string;
     url: string;
   }
-  interface ActivityPartial<T extends ActivityType = BotActivityType> {
+  interface ActivityPartial<T extends BotStringActivityType> {
     name: string;
     type?: T;
     url?: string;
@@ -2610,8 +2611,8 @@ declare namespace apoloJS {
     editRolePosition(guildID: string, roleID: string, position: number): Promise<void>;
     editSelf(options: { avatar?: string; username?: string }): Promise<ExtendedUser>;
     editStageInstance(channelID: string, options: StageInstanceOptions): Promise<StageInstance>;
-    editStatus(status: SelfStatus, activities?: ActivityPartial<BotActivityType>[] | ActivityPartial<BotActivityType>): void;
-    editStatus(activities?: ActivityPartial<BotActivityType>[] | ActivityPartial<BotActivityType>): void;
+    editStatus(status: SelfStatus, activities?: ActivityPartial<BotStringActivityType>[] | ActivityPartial<BotStringActivityType>): void;
+    editStatus(activities?: ActivityPartial<BotStringActivityType>[] | ActivityPartial<BotStringActivityType>): void;
     editWebhook(
       webhookID: string,
       options: WebhookOptions,
