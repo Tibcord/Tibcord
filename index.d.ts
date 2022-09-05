@@ -1488,6 +1488,7 @@ declare namespace apoloJS {
     name: string;
     type?: T;
     url?: string;
+    shard?: number | string;
   }
   interface ClientPresence {
     activities: Activity[] | null;
