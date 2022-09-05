@@ -166,7 +166,8 @@ declare namespace apoloJS {
   // Presence/Relationship
   type ActivityFlags = Constants["ActivityFlags"][keyof Constants["ActivityFlags"]];
   type ActivityType = BotActivityType | Constants["ActivityTypes"]["CUSTOM"];
-  type BotActivityType = Constants["ActivityTypes"][Exclude<keyof Constants["ActivityTypes"], "CUSTOM">];
+  // type BotActivityType = Constants["ActivityTypes"][Exclude<keyof Constants["ActivityTypes"], "Custom">];
+  type BotActivityType = Exclude<keyof Constants["ActivityTypes"], "Custom">;
   type FriendSuggestionReasons = { name: string; platform_type: string; type: number }[];
   type Status = "online" | "idle" | "dnd";
   type SelfStatus = Status | "invisible";
@@ -1484,7 +1485,7 @@ declare namespace apoloJS {
     label: string;
     url: string;
   }
-  interface ActivityPartial<T extends ActivityType = BotActivityType> {
+  interface ActivityPartial<T extends BotActivityType> {
     name: string;
     type?: T;
     url?: string;
@@ -1729,12 +1730,12 @@ declare namespace apoloJS {
       EMBEDDED:                    256;
     };
     ActivityTypes: {
-      GAME:      0;
-      STREAMING: 1;
-      LISTENING: 2;
-      WATCHING:  3;
-      CUSTOM:    4;
-      COMPETING: 5;
+      Playing:      0;
+      Streaming: 1;
+      Listening: 2;
+      Watching:  3;
+      Custom:    4;
+      Competing: 5;
     };
     ApplicationCommandOptionTypes: {
       SUB_COMMAND:       1;
