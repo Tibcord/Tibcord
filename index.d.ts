@@ -167,7 +167,7 @@ declare namespace apoloJS {
   type ActivityFlags = Constants["ActivityFlags"][keyof Constants["ActivityFlags"]];
   type ActivityType = BotActivityType | Constants["ActivityTypes"]["Custom"];
   type BotActivityType = Constants["ActivityTypes"][keyof Constants["ActivityTypes"]];
-  type BotStatusActivityType = Exclude<keyof Constants["ActivityTypes"], "Custom"> | Exclude<BotActivityType, 4>;
+  type BotStatusActivityType = Exclude<keyof Constants["ActivityTypes"], "Custom"> | BotActivityType;
   type FriendSuggestionReasons = { name: string; platform_type: string; type: number }[];
   type Status = "online" | "idle" | "dnd";
   type SelfStatus = Status | "invisible";
@@ -3589,8 +3589,8 @@ declare namespace apoloJS {
     createGuild(_guild: Guild): Guild;
     disconnect(options?: { reconnect?: boolean | "auto" }, error?: Error): void;
     editAFK(afk: boolean): void;
-    editStatus(status: SelfStatus, activities?: ActivityPartial<BotStringActivityType>[] | ActivityPartial<BotStringActivityType>): void;
-    editStatus(activities?: ActivityPartial<BotStringActivityType>[] | ActivityPartial<BotStringActivityType>): void;
+    editStatus(status: SelfStatus, activities?: ActivityPartial<BotStatusActivityType>[] | ActivityPartial<BotStatusActivityType>): void;
+    editStatus(activities?: ActivityPartial<BotStatusActivityType>[] | ActivityPartial<BotStatusActivityType>): void;
     // @ts-ignore: Method override
     emit(event: string, ...args: any[]): void;
     emit<K extends keyof ShardEvents>(event: K, ...args: ShardEvents[K]): boolean;
