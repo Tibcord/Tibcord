@@ -2411,7 +2411,7 @@ declare namespace apoloJS {
     user: ExtendedUser;
     users: Collection<User>;
     voiceConnections: VoiceConnectionManager;
-    constructor(token: string, options?: ClientOptions);
+    constructor(token: string | undefined, options?: ClientOptions);
     addGuildDiscoverySubcategory(guildID: string, categoryID: string, reason?: string): Promise<DiscoverySubcategoryResponse>;
     addGuildMemberRole(guildID: string, memberID: string, roleID: string, reason?: string): Promise<void>;
     addMessageReaction(channelID: string, messageID: string, reaction: string): Promise<void>;
