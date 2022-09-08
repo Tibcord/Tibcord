@@ -1487,7 +1487,7 @@ declare namespace apoloJS {
   }
   interface ActivityPartial<T extends BotStatusActivityType> {
     name: string;
-    type?: Exclude<T, 4>;
+    type?: T;
     url?: string;
     shard?: number | string;
   }
