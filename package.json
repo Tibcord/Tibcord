@@ -1,5 +1,5 @@
 {
-  "name": "apolojs",
+  "name": "Tibcord",
   "version": "0.0.1",
   "description": "An optimized NodeJS Discord library.",
   "main": "./index.js",
@@ -32,17 +32,17 @@
     "api",
     "discord",
     "library",
-    "apoloJS",
+    "Tibcord",
     "wrapper"
   ],
   "author": "dirquel",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ApoloJS/apoloJS/issues"
+    "url": "https://github.com/Tibcord/Tibcord/issues"
   },
-  "homepage": "https://gitub.com/ApoloJS/apoloJS/#readme/",
+  "homepage": "https://gitub.com/Tibcord/Tibcord/#readme/",
   "dependencies": {
-    "ws": "8.8.1"
+    "ws": "^8.8.1"
   },
   "devDependencies": {
     "@types/node": "18.7.15",

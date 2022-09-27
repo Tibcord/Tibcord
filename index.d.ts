@@ -7,9 +7,9 @@ import { URL } from "url";
 import { Socket as DgramSocket } from "dgram";
 import * as WebSocket from "ws";
 
-declare function apoloJS(token: string | undefined, options?: apoloJS.ClientOptions): apoloJS.Client;
+declare function Tibcord(token: string | undefined, options?: Tibcord.ClientOptions): Tibcord.Client;
 
-declare namespace apoloJS {
+declare namespace Tibcord {
   export const Constants: Constants;
   export const VERSION: string;
 
@@ -3954,4 +3954,4 @@ declare namespace apoloJS {
   }
 }
 
-export = apoloJS;
+export = Tibcord;
