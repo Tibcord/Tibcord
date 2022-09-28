@@ -1,5 +1,5 @@
 {
-  "name": "Tibcord",
+  "name": "tibcord",
   "version": "0.0.1",
   "description": "An optimized NodeJS Discord library.",
   "main": "./index.js",
@@ -40,7 +40,7 @@
   "bugs": {
     "url": "https://github.com/Tibcord/Tibcord/issues"
   },
-  "homepage": "https://gitub.com/Tibcord/Tibcord/#readme/",
+  "homepage": "https://github.com/Tibcord/Tibcord/#readme/",
   "dependencies": {
     "ws": "^8.8.1"
   },
